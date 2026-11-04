@@ -17,6 +17,20 @@ app.get("/", (request, response) => {
         }
     });
 });
+app.get("/", (request, response) => {
+    response.status(200).send(`
+        <html>
+            <head>
+                <title>Books Management API</title>
+            </head>
+            <body style="font-family: Arial; text-align: center; padding: 50px;">
+                <h1>Welcome to Books Management REST API</h1>
+                <p>Your REST API is running successfully!</p>
+                <a href="/books/">View All Books</a>
+            </body>
+        </html>
+    `);
+});
 
 const databasePath = path.join(__dirname, "database", "books.db");
 
