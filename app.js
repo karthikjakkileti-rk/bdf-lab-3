@@ -11,6 +11,14 @@ app.use(express.json());
 const databasePath = path.join(__dirname, "database", "books.db");
 
 let db;
+app.get("/", (request, response) => {
+    response.json({
+        message: "Welcome to the Books Management REST API",
+        endpoints: {
+            books: "/books/"
+        }
+    });
+});
 
 // GET all books with search, sorting, pagination and price filtering
 app.get("/books/", async (request, response) => {
