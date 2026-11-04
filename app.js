@@ -7,6 +7,16 @@ const path = require("path");
 const app = express();
 
 app.use(express.json());
+// Home route
+app.get("/", (request, response) => {
+    response.status(200).json({
+        message: "Welcome to Books Management REST API",
+        endpoints: {
+            getAllBooks: "/books/",
+            getBookById: "/books/:bookId/"
+        }
+    });
+});
 
 const databasePath = path.join(__dirname, "database", "books.db");
 
